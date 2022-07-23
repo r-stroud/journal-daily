@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journal</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Lobster&display=swap" rel="stylesheet">
+
+<body>
+    <div class="artCont">
+        <section class="profile">
+            <h1>Daily Journal</h1>
+            <h2>Robert's Entries</h2>
+        </section>
+        <div class="page">
+            <article>
+                <main id="container">
+                    <form class="dateForm">
+                        <fieldset>
+                            <label for="dateEntry">Date</label>
+                            <input type="date" name="dateEntry" class="date">
+                        </fieldset>
+                    </form>
+                    <form class="conceptForm">
+                        <fieldset>
+                            <label for="conceptEntry">Concept</label>
+                            <input type="text" name="conceptEntry" class="concept">
+                        </fieldset>
+                    </form>
+                    <form class="entryForm">
+                        <fieldset>
+                            <label for="entryEntry">Journal Entry</label>
+                            <textarea name="entryEntry" class="entry" placeholder="Please start writing!"></textarea>
+                        </fieldset>
+                    </form>
+                    <form class="moodForm" action="#">
+                        <fieldset>
+                            <label for="moodEntry">Mood</label>
+                            <select name="mood">
+                                <option value="default">Please select</option>
+                                <option value="happy">Happy</option>
+                                <option value="sad">Sad</option>
+                                <option value="meh">Meh</option>
+                                <option value="totAwe">Totally Awesome!</option>
+                            </select>
+                        </fieldset>
+                    </form>
+                    <div class="button">
+                        <button type="button">Record Journal Entry</button>
+                    </div>
+                </main>
+            </article>
+            <article id="entries" class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSti3_X4cLNHdFNX_mX6jaFcRg3qsHuT0Wh4w&usqp=CAU"
+                    alt="A Thick Tome" />
+            </article>
+        </div>
+    </div>
+    <footer>
+        <ul>
+            <li>Robert Stroud</li>
+            <li><a href="https://github.com/r-stroud">GitHub Account</a></li>
+            <li>&copy;</li>
+        </ul>
+
+    </footer>
+</body>
+
+</html>

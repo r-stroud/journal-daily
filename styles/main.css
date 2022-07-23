@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(https://thumbs.dreamstime.com/z/old-letters-postcards-open-journal-vintage-accessories-used-paper-background-119635217.jpg);
+}
+
+img {
+    width: 120px;
+    margin: 10px 10px 0 0;
+    border: 5px solid crimson;
+    border-radius: 100%;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    font-family: 'Kelly Slab', "cursive";
+    color: rgba(210, 197, 171, 1);
+}
+
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+article {
+    width: 45%;
+    margin-right: 10px;
+    border-radius: 0px;
+    background-image: url(https://cdn.pixabay.com/photo/2013/07/12/17/57/document-152679_640.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: solid 2px blue;
+    box-shadow: 1px 1px 20px 2px black;
+}
+
+#container {
+    width: 100%;
+    margin: auto;
+}
+
+form {
+    background-color: #8cb3ffe0;
+    border-top: 2px blue solid;
+    border-right: 1px blue solid;
+    border-left: 1px blue solid;
+    padding: 10px 0;
+}
+
+form label {
+    font-family: 'Lobster', "cursive";
+    font-size: 18px;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.artCont {
+    background-image: url(https://t3.ftcdn.net/jpg/01/54/94/28/360_F_154942829_qDXEOxrNI06qeubwT0k3MDemagwe6a7m.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 85%;
+    margin: 30px auto;
+    padding: 30px 0 60px;
+    border-radius: 30px;
+    box-shadow: 1px 1px 50px 15px rgb(17, 17, 17);
+    border: solid rgb(36, 26, 20) 3px;
+
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+footer {
+    border-top: 1px solid rgba(108, 55, 55, 1);
+    background-color: rgba(210, 197, 171, 1);
+    height: 8serve0px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+button {
+    background-color: #d24e4e;
+    border: snow solid 2px;
+    color: snow;
+    height: 30px;
+    font-size: 16px;
+    padding: 0 10px;
+    margin: 5px 0 0 10px;
+}
+
+.button {
+    background-color: #8cb3ffe0;
+    padding: 10px 0 15px;
+    border-top: 2px blue solid;
+    border-right: 1px blue solid;
+    border-left: 1px blue solid;
+}
+
+button:hover {
+    font-size: 16.5px;
+    background-color: #c91616;
+
+}
+
+footer ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+footer li {
+    padding-right: 50px;
+    font-size: 20px;
+}
+
+fieldset {
+    border: none;
+
+}
