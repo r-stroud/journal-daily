@@ -8,6 +8,7 @@
     <title>Daily Journal</title>
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Lobster&display=swap" rel="stylesheet">
+</head>
 
 <body>
     <div class="artCont">
@@ -51,12 +52,27 @@
                     <div class="button">
                         <button type="button">Record Journal Entry</button>
                     </div>
+                    <div class="sortedEntries">
+                        <div>
+                            <h2>Recent Entry</h2>
+                            <div id="recentEntry" class="jsEntries"></div>
+                        </div>
+                        <div>
+                            <h2>Remember This Entry?</h2>
+                            <div id="randomEntry" class="jsEntries"></div>
+                        </div>
+                        <div>
+                            <h2>Happy Thoughts</h2>
+                            <div id="happyEntry" class="jsEntries"></div>
+                        </div>
+                    </div>
                 </main>
             </article>
             <article id="entries" class="logo">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSti3_X4cLNHdFNX_mX6jaFcRg3qsHuT0Wh4w&usqp=CAU"
                     alt="A Thick Tome" />
-                <ol>
+                <div id="jsEntries" class="jsEntries"></div>
+                <!-- <ol>
                     <li>
                         <div class="jrnl-entry">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -81,7 +97,7 @@
 
                         </div>
                     </li>
-                </ol>
+                </ol> -->
             </article>
         </div>
     </div>
@@ -93,6 +109,7 @@
         </ul>
 
     </footer>
+    <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>
