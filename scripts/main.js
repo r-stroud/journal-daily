@@ -1,130 +1,59 @@
 import { getJournalEntries } from "./entries.js"
 
-// console.log(getJournalEntries())
-
-// function show_image(src, width, height, alt) {
-//     var img = document.createElement("img")
-//     img.src = "../images/delete.jpg"
-//     img.width = "200px"
-//     img.height = "200px"
-//     img.alt = ""
-
-//     document.body.appendChild(img)
-// }
-
 const jrnlEntries = getJournalEntries()
 
-// const blank = "<ol>"
+const createEntry = (param) => {
+    let indexHTML = "<ol>"
 
-// const reusableLoop = (array, blank) => {
-//     for (const obj of array) {
-//         blank = blank + `<li>
-//         <div>
-//         <h2>Entry No: ${obj.id}</h2>
-//         <section>
-//         <h3>${obj.concept}</h3>
-//         <h4>${obj.date}</h4>
-//         </section>
-//         <p>${obj.entry}</p>
-//         <h4>Mood: ${obj.mood}</h4>
-//         </div>
-//         </li>`
-//         blank = blank + `</ol>`
-//     }
-// }
-
-const jrnlFilter = jrnlEntries.filter(obj => obj.mood === "Happy")
-
-console.log(jrnlFilter)
-
-// console.log(reusableLoop(jrnlFilter, empty))
-
-// const filterString = reusableLoop(jrnlFilter, blank2)
-
-// console.log(filterString)
-
-
-
-let empty = ""
-
-for (const obj of jrnlFilter) {
-    empty = empty + `<ol><li>
-        <div>
-        <h2>Entry No: ${obj.id}</h2>
-        <section>
-        <h3>${obj.concept}</h3>
-        <h4>${obj.date}</h4>
-         </section>
-        <p>${obj.entry}</p>
-        <h4>Mood: ${obj.mood}</h4>
-         </div>
-         </li>`
-    empty = empty + `</ol>`
-
-}
-
-// console.log(empty)
-
-// console.log(jrnlFilter)
-
-document.getElementById("happyEntry").innerHTML = empty
-
-let sortEntries = jrnlEntries.reverse()
-
-// console.log(sortEntries)
-
-let indexHTML = "<ol>"
-
-for (let i = 0; i < sortEntries.length; i++) {
-    indexHTML = indexHTML + `<li>
+    for (let i = 0; i < param.length; i++) {
+        indexHTML = indexHTML + `<li>
     <div>
-    <h2>Entry No: ${sortEntries[i].id}</h2>
+    <h2>Entry No: ${param[i].id}</h2>
     <section>
-    <h3>${sortEntries[i].concept}</h3>
-    <h4>${sortEntries[i].date}</h4>
+    <h3>${param[i].concept}</h3>
+    <h4>${param[i].date}</h4>
     </section>
-    <p>${sortEntries[i].entry}</p>
-    <h4>Mood: ${sortEntries[i].mood}</h4>
+    <p>${param[i].entry}</p>
+    <h4>Mood: ${param[i].mood}</h4>
     </div>
     </li>`
 
+
+    }
     indexHTML = indexHTML + `</ol>`
+    return indexHTML
 }
 
 
-document.getElementById("jsEntries").innerHTML = indexHTML
+document.getElementById("jsEntries").innerHTML = createEntry(getJournalEntries().reverse())
+document.getElementById("happyEntry").innerHTML = createEntry(getJournalEntries().filter(obj => obj.mood === "Happy"))
 
-// console.log(indexHTML)
 
-let latestEntry = jrnlEntries.shift()
+const getLatest = (param) => {
 
-const toHTML = (obj) => {
-    return `<ol><li><div>
-    <h2>Entry No: ${obj.id}</h2>
+    let latestEntry = param.shift()
+    let html = `<ol><li><div>
+    <h2>Entry No: ${latestEntry.id}</h2>
     <section>
-    <h3>${obj.concept}</h3>
-    <h4>${obj.date}</h4>
+    <h3>${latestEntry.concept}</h3>
+    <h4>${latestEntry.date}</h4>
     </section>
-    <p>${obj.entry}</p>
-    <h4>Mood: ${obj.mood}</h4></div>
+    <p>${latestEntry.entry}</p>
+    <h4>Mood: ${latestEntry.mood}</h4></div>
     </li><ol>`
+    return html
 }
 
-const recentEntry = toHTML(latestEntry)
+document.getElementById("recentEntry").innerHTML = getLatest(getJournalEntries())
 
-document.getElementById("recentEntry").innerHTML = recentEntry
+const randomness = () => {
+    let randomString = "<ol>"
+    let randomNum = Math.floor(Math.random() * 6) + 1
+    for (const each of getJournalEntries()) {
 
-// console.log(jrnlEntries)
 
-let randomNum = Math.floor(Math.random() * 7) + 1
-
-// console.log(randomNum)
-
-let randomString = "<ol>";
-
-for (const each of jrnlEntries) {
-    if (randomNum === each.id) {
-        randomString = randomString + `<li>
+        if (randomNum === each.id) {
+            randomString = randomString + `<li>
 <div>
 <h2>Entry No: ${each.id}</h2>
 <section>
@@ -135,47 +64,11 @@ for (const each of jrnlEntries) {
 <h4>Mood: ${each.mood}</h4>
 </div>
 </li>`
-        randomString = randomString + `</ol>`
-
+        }
     }
+
+    randomString = randomString + `</ol>`
+    return randomString
 }
 
-document.getElementById("randomEntry").innerHTML = randomString
-
-
-// console.log(journEntries);
-
-// for (entry of journEntries) {
-//     console.log(entry);
-// }
-
-// for (entry of journEntries) {
-//     console.log(entry.concept);
-// }
-
-// for (entry of journEntries) {
-//     if (entry.id % 2 == !0) {
-//         console.log(entry);
-//     }
-// }
-
-
-
-
-
-// const newEntry = (entry, date, mood) => {
-//     return {
-//         Entry: entry,
-//         Date: date,
-//         Mood: mood
-//     }
-// }
-
-// const entryBobBob = newEntry("I love Functions!", "081922", "Crazy")
-
-// const anotherFunction = (obj) => {
-// return `<h2>${obj.entry}</h2>`
-// }
-
-// const actualEntryBobBob = anotherFunction(entryBobBob)
-
+document.getElementById("randomEntry").innerHTML = randomness()
