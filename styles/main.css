@@ -164,11 +164,19 @@ fieldset {
     padding-left: 5px;
 }
 
-#entries ol {
+ol {
     margin: 0;
     padding: 0;
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#happyEntry {
+    margin-bottom: 10px;
+}
+
+#happyEntry ol {
+    flex-direction: column;
 }
 
 #entries li {
@@ -202,18 +210,13 @@ fieldset {
 
 }
 
+
 .jsEntries {
     margin: 0 auto 20px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-}
-
-.jsEntries ol {
-    margin: 0;
-    padding-left: 20px;
-    /* width: 100%; */
 }
 
 
@@ -248,8 +251,6 @@ fieldset {
     font-size: 18px;
     padding-bottom: 2px;
 }
-
-
 
 .jrnl-bttn {
     width: 35px;
