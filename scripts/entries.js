@@ -1,72 +1,53 @@
-const journEntries = [
-    {
-        id: 1,
-        date: "01/01/22",
-        concept: "Undecided",
-        entry: "This is entry number 1.",
-        mood: "Sad"
 
-    },
-    {
-        id: 2,
-        date: "02/01/22",
-        concept: "TBD",
-        entry: "This is entry number 2.",
-        mood: "Happy"
+const api = "http://localhost:8088"
 
-    },
-    {
-        id: 3,
-        date: "03/01/22",
-        concept: "Not Sure",
-        entry: "This is entry number 3.",
-        mood: "Meh"
+const applicationState = {
+    journalEntries: []
+}
 
-    },
-    {
-        id: 4,
-        date: "04/01/22",
-        concept: "Who knows",
-        entry: "This is entry number 4.",
-        mood: "Totally Awesome"
+export const fetchJournalEntries = async () => {
+    const data = await fetch(`${api}/journEntries`)
+    const entries = await data.json()
+    applicationState.journalEntries = entries
 
-    },
-    {
-        id: 5,
-        date: "05/01/22",
-        concept: "Your guess is as good as mine",
-        entry: "This is entry number 5.",
-        mood: "Meh"
-
-    },
-    {
-        id: 6,
-        date: "06/01/22",
-        concept: "Undetermined",
-        entry: "This is entry number 6.",
-        mood: "Totally Awesome"
-
-    },
-    {
-        id: 7,
-        date: "07/01/22",
-        concept: "????",
-        entry: "This is entry number 7.",
-        mood: "Sad"
-
-    },
-    {
-        id: 8,
-        date: "08/01/22",
-        concept: "No idea",
-        entry: "This is entry number 8.",
-        mood: "Happy"
-
-    },
-
-]
+}
 
 export const getJournalEntries = () => {
-    const copyOfEntries = journEntries.map(entry => ({ ...entry }))
+    const copyOfEntries = applicationState.journalEntries.map(entry => ({ ...entry }))
     return copyOfEntries
+}
+
+export const addNewEntry = async (entry) => {
+
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(entry)
+    }
+    const response = await fetch(`${api}/journEntries`, fetchOptions)
+    const responseJson = await response.json()
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+    return responseJson
+}
+
+export const deleteCard = async (id) => {
+    const data = await fetch(`${api}/journEntries/${id}`, { method: "DELETE" })
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+
+}
+
+export const editCard = async (entry, id) => {
+    const fetchOptions = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(entry)
+    }
+
+    const data = await fetch(`${api}/journEntries/${id}`, fetchOptions)
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+
 }
