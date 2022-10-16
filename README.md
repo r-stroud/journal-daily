@@ -26,8 +26,8 @@ Saved entries are sorted and viewed depending on that information.
 
 Contributors names and contact info
 
-Robert Stroud
-stroudrobert86@gmail.com
+* Robert Stroud
+* stroudrobert86@gmail.com
 
 ## Acknowledgments
 
